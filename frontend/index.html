@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="FORGE Fitness: treine com propósito e evolua todos os dias.">
+  <meta name="theme-color" content="#101010"><title>FORGE Fitness | Sua força começa aqui</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/config.js" defer></script><script src="js/app.js" defer></script>
+</head>
+<body>
+<header class="site-header"><nav class="nav wrap" aria-label="Navegação principal">
+  <a class="brand" href="#inicio">FORGE<span> FITNESS</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">☰</button>
+  <ul id="nav-links" class="nav-links">
+    <li><a href="#inicio">Início</a></li><li><a href="#sobre">Sobre</a></li><li><a href="#modalidades">Modalidades</a></li>
+    <li><a href="#equipe">Equipe</a></li><li><a href="#horarios">Horários</a></li><li><a href="#unidades">Unidades</a></li>
+  </ul><div class="account-actions" id="account-actions"><button class="button button-outline" id="open-auth">Entrar / Cadastrar</button></div>
+</nav></header>
+<main>
+<section class="hero" id="inicio"><div class="hero-content wrap"><p class="eyebrow">SUPERE SEUS LIMITES</p><h1>SUA FORÇA<br>COMEÇA AQUI.</h1>
+<p>Treine com propósito, evolua todos os dias e alcance sua melhor versão.</p><a class="button" href="#modalidades">Conheça nossos treinos</a></div></section>
+<section class="section wrap" id="sobre"><p class="eyebrow">NOSSA ESSÊNCIA</p><h2>Mais que uma academia. Um espaço para evoluir.</h2>
+<p class="lead">A FORGE Fitness acredita que disciplina, orientação e constância ajudam cada pessoa a construir uma rotina mais ativa e saudável.</p></section>
+<section class="section section-alt" id="modalidades"><div class="wrap"><p class="eyebrow">ENCONTRE SEU TREINO</p><h2>Nossas modalidades</h2><div id="trainings-container" class="cards">Carregando...</div></div></section>
+<section class="section wrap" id="equipe"><p class="eyebrow">PROFISSIONAIS</p><h2>Conheça nossa equipe</h2><div id="coaches-container" class="cards">Carregando...</div></section>
+<section class="section section-alt" id="horarios"><div class="wrap"><p class="eyebrow">PLANEJE SUA ROTINA</p><h2>Horários de funcionamento</h2><div id="schedules-container" class="schedule">Carregando...</div></div></section>
+<section class="section wrap" id="unidades"><p class="eyebrow">VENHA NOS VISITAR</p><h2>Nossas unidades</h2><div id="locations-container" class="cards">Carregando...</div></section>
+<section class="cta"><div class="wrap"><p class="eyebrow">SEU PRÓXIMO PASSO COMEÇA AGORA</p><h2>Construa sua melhor versão.</h2><a class="button" href="#unidades">Encontre uma unidade</a></div></section>
+
+<section class="admin-section" id="admin-panel" hidden><div class="wrap"><div class="admin-heading"><div><p class="eyebrow">ÁREA RESTRITA</p><h2>Painel administrativo</h2><p class="muted">Gerencie os dados exibidos no site.</p></div><button class="button button-outline" id="logout">Sair</button></div>
+<div class="stats" id="stats"></div><div class="admin-tabs" id="admin-tabs">
+<button class="tab active" data-resource="trainings">Modalidades</button><button class="tab" data-resource="coaches">Professores</button><button class="tab" data-resource="schedules">Horários</button><button class="tab" data-resource="locations">Unidades</button></div>
+<div class="admin-card"><div class="admin-toolbar"><h3 id="resource-title">Modalidades</h3><input id="admin-search" type="search" placeholder="Pesquisar registros..."><button class="button" id="new-record">+ Novo cadastro</button></div><div id="admin-list" class="admin-list"></div></div></div></section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#inicio">FORGE<span> FITNESS</span></a><p>© <span id="year"></span> FORGE Fitness. Projeto acadêmico.</p></div></footer>
+
+<div class="modal" id="auth-modal" aria-hidden="true"><div class="modal-card"><button class="modal-close" id="close-auth" aria-label="Fechar">×</button>
+<p class="eyebrow">BEM-VINDO À FORGE</p><h2 id="auth-title">Acesse sua conta</h2><div class="auth-switch"><button class="tab active" id="login-tab">Entrar</button><button class="tab" id="register-tab">Criar conta</button></div>
+<form id="auth-form"><label id="name-label" hidden>Nome completo<input id="auth-name" autocomplete="name"></label><label>E-mail<input id="auth-email" type="email" required autocomplete="email"></label><label>Senha<input id="auth-password" type="password" required minlength="6" autocomplete="current-password"></label><button class="button full" id="auth-submit">Entrar</button></form>
+<form id="recovery-form" hidden><label>Nova senha<input id="new-password" type="password" required minlength="6" autocomplete="new-password"></label><button class="button full" id="recovery-submit">Atualizar senha</button></form>
+<button class="text-button" id="forgot-password">Esqueci minha senha</button><p class="form-message" id="auth-message" role="status"></p></div></div>
+<div class="modal" id="record-modal" aria-hidden="true"><div class="modal-card wide"><button class="modal-close" id="close-record" aria-label="Fechar">×</button><p class="eyebrow">GERENCIAMENTO</p><h2 id="record-title">Novo cadastro</h2><form id="record-form"><div id="record-fields" class="form-grid"></div><button class="button full">Salvar registro</button><p class="form-message" id="record-message" role="status"></p></form></div></div>
+<div class="toast" id="toast" role="status"></div>
+</body></html>
